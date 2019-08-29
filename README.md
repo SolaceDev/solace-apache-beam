@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/SolaceLabs/solace-beam-unboundedSource.svg?branch=master)](https://travis-ci.org/SolaceLabs/solace-beam-unboundedSource)
+[![Build Status](https://travis-ci.org/SolaceLabs/solace-beam-unboundedSource.svg?branch=development)](https://travis-ci.org/SolaceLabs/solace-beam-unboundedSource)
 
 # solace-beam-unboundedSource
 
