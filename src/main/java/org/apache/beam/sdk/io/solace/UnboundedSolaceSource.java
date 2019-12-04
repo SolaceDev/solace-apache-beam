@@ -51,11 +51,14 @@ class UnboundedSolaceSource<T> extends UnboundedSource<T, SolaceCheckpointMark> 
     SolaceIO.ConnectionConfiguration cc = spec.connectionConfiguration();
     LOG.info("Queue Numbers: {}, desiredNumSplits: {}, PipelineOptions: {}",
         cc.getQueues().size(), desiredNumSplits, options);
+    int numQueues = cc.getQueues().size();
+    int numSplits = Math.max(desiredNumSplits, numQueues);
 
-    List<UnboundedSolaceSource<T>> sourceList = new ArrayList<>();
-    for (String queueName : cc.getQueues()) {
+    List<UnboundedSolaceSource<T>> sourceList = new ArrayList<>(numSplits);
+
+    for (int i = 0; i < numSplits; i++) {
       UnboundedSolaceSource<T> source = new UnboundedSolaceSource<T>(spec);
-      source.queueName = queueName;
+      source.queueName = cc.getQueues().get(i % numQueues);
       sourceList.add(source);
     }
     return sourceList;

@@ -184,8 +184,8 @@ class UnboundedSolaceReader<T> extends UnboundedSource.UnboundedReader<T> {
       LOG.info("Binding Solace session [{}] to queue[{}]...", this.clientName, source.getQueueName());
  
       // Create Monitor Thread
-      ActivityMonitor myMonitor = new ActivityMonitor(this, cc.getTimeoutInMillis());
-      myMonitor.start();
+     //TODO: ActivityMonitor myMonitor = new ActivityMonitor(this, cc.getTimeoutInMillis());
+     //TODO: myMonitor.start();
       return advance();
 
     } catch (Exception ex) {
