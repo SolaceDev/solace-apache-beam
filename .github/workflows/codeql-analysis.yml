@@ -29,12 +29,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
       with:
         submodules: recursive
 
     - name: Cache local Maven repository
-      uses: actions/cache@v2
+      uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace # v2
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-codeql-${{ hashFiles('**/pom.xml') }}
@@ -43,7 +43,7 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@231aa2c8a89117b126725a0e11897209b7118144 # v1
       with:
         languages: java
         # If you wish to specify custom queries, you can do so here or in a config file.
@@ -57,7 +57,7 @@ jobs:
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+      uses: github/codeql-action/autobuild@231aa2c8a89117b126725a0e11897209b7118144 # v1
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
@@ -71,4 +71,4 @@ jobs:
     #   make release
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@231aa2c8a89117b126725a0e11897209b7118144 # v1
